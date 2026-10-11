@@ -23,6 +23,15 @@ describe("Integration test find product use case", () => {
     await sequelize.close();
   });
 
+  it("should throw an error when product is not found", async () => {
+    const productRepository = new ProductRepository();
+    const useCase = new FindProductUseCase(productRepository);
+
+    await expect(useCase.execute({ id: "unknown" })).rejects.toThrow(
+      "Product not found"
+    );
+  });
+
   it("should find a product", async () => {
     const productRepository = new ProductRepository();
     const useCase = new FindProductUseCase(productRepository);
