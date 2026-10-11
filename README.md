@@ -21,7 +21,7 @@ src/usecase/product/
 
 ```bash
 npm install
-npm test          # typecheck (tsc --noEmit) + todos os testes
+npm test          # typecheck (tsc --noEmit) + testes com cobertura (100% nos use cases)
 ```
 
 Somente os testes do Product:
